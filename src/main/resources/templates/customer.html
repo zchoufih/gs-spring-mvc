@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Customer List</h1>
+<table border="1">
+    <tr data-th-each="customer : ${customerVOList}">
+        <td data-th-text="${customer.firstName}">...</td>
+        <td data-th-text="${customer.lastName}">...</td>
+    </tr>
+</table>
+</body>
+</html>
