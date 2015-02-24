@@ -1,9 +1,14 @@
 package com.mycompany.app.core;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Customer {
@@ -12,6 +17,9 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    private List<Address> addresses;
 
     public Customer() {
     }
@@ -45,12 +53,21 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> address) {
+        this.addresses = address;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", addresses=" + addresses +
                 '}';
     }
 }

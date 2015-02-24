@@ -30,4 +30,9 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customerVOList;
     }
+
+    @Override
+    public List<CustomerVO> findByLastName(String lastName) {
+        return null;
+    }
 }

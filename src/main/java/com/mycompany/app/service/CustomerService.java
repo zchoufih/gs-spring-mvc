@@ -6,4 +6,6 @@ import com.mycompany.app.vo.CustomerVO;
 
 public interface CustomerService {
     List<CustomerVO> loadAll();
+
+    List<CustomerVO> findByLastName(String lastName);
 }
